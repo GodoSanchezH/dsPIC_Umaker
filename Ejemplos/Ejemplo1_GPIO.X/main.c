@@ -14,6 +14,9 @@
 /*
  * 
  */
+
+void  Ejemplo1(void);
+
 int main(int argc, char** argv) {
 
     //Pines de salida  RB0 , RB1 ,RB2 , RB3
@@ -23,16 +26,23 @@ int main(int argc, char** argv) {
     //Definimos las salidas  (TRISX) 0-> Salida 1-> entrada
     TRISB &= ~(1<<0) & ~(1<<1) & ~(1<<2) & ~(1<<3);
     
-    
+   // Definimoslas entradas:
+    TRISB |= (1<<14) | (1<<15);
     
     for(;;){
     
-        LATB ^= (1<<0) | (1<<1) | (1<<2) | (1<<3) ;
-        __delay_ms(500);
+        
     
     }
     
     
     return (EXIT_SUCCESS);
 }
+
+void  Ejemplo1(void){
+
+LATB ^= (1<<0) | (1<<1) | (1<<2) | (1<<3) ;
+        __delay_ms(500);
+}
+
 
