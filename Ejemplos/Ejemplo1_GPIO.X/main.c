@@ -27,15 +27,32 @@ int main(int argc, char** argv) {
     TRISB &= ~(1<<0) & ~(1<<1) & ~(1<<2) & ~(1<<3);
     
    // Definimoslas entradas:
-    TRISB |= (1<<14) | (1<<15);
+    TRISB |= (1<<14) | (1<<15) | (1<<4) ;
+    CNPU1bits.CN1PUE = 1;
     
     for(;;){
-    
+        //pull down
+        if((PORTB & (1<<15)))
+        {
+            LATB |= (1<<0) | (1<<1)  ;
+        }
+         //pull UP
+        else if(!(PORTB & (1<<14)))
+        {
+            LATB |=   (1<<2) | (1<<3) ;
+        }
+        //pull up dspic
+          else if(!(PORTB & (1<<4)))
+        {
+            LATB |= (1<<0) | (1<<1) |  (1<<2) | (1<<3) ;
+        }
+        else{ 
+        LATB &= ~((1<<0) | (1<<1) | (1<<2) | (1<<3)) ;
+        }
         
-    
     }
     
-    
+        
     return (EXIT_SUCCESS);
 }
 
