@@ -92,13 +92,82 @@ IPC0bits.OC1IP = 7;
 T2CONbits.TON = 1;   
 }
 void OC1_Delayed_One_Shot(void){
+/*Desabilitamos el Modulo OC1*/
+    OC1CONbits.OCM = 0B000;
+    
+/*Seleccionamos el Timer*/    
+    OC1CONbits.OCTSEL =0;//timer2
+    
+/*ISR*/
 
+IEC0bits.OC1IE = 1;
+IFS0bits.OC1IF = 0;
+IPC0bits.OC1IP = 7;
+ 
+/*ACTIVAMOS EL MODO one shot delayed*/
+  OC1CONbits.OCM = 0B100;
+
+  OC1R = 1000;
+  
+  OC1RS = 41000;
+  
+/*Disparamos el Timer*/
+// TMR2 =0;
+T2CONbits.TON = 1;  
 }
 void OC1_Continuous_Pulse(void){
+/*Desabilitamos el Modulo OC1*/
+    OC1CONbits.OCM = 0B000;
+    
+/*Seleccionamos el Timer*/    
+    OC1CONbits.OCTSEL =0;//timer2
+    
+/*ISR*/
 
+IEC0bits.OC1IE = 1;
+IFS0bits.OC1IF = 0;
+IPC0bits.OC1IP = 7;
+ 
+/*ACTIVAMOS EL MODO continuous pulse*/
+  OC1CONbits.OCM = 0B101;
+
+  OC1R = 1000;
+  
+  OC1RS = 5000;
+  
+/*Disparamos el Timer*/
+// TMR2 =0;
+T2CONbits.TON = 1;  
+    
+    
+    
+    
 }
 void OC1_PWM(void){
+/*Desabilitamos el Modulo OC1*/
+    OC1CONbits.OCM = 0B000;
+    
+/*Seleccionamos el Timer*/    
+    OC1CONbits.OCTSEL =0;//timer2
+    
+/*ISR*/
 
+IEC0bits.OC1IE = 1;
+IFS0bits.OC1IF = 0;
+IPC0bits.OC1IP = 7;
+ 
+/*ACTIVAMOS EL MODO continuous pulse*/
+  OC1CONbits.OCM = 0B110;
+
+  TMR2 = 0x0000;  
+  PR2  = 1000;
+  //OC1RS = 5000;
+  
+/*Disparamos el Timer*/
+// TMR2 =0;
+T2CONbits.TON = 1;  
+    
+    
 }
 
 
@@ -106,6 +175,6 @@ void OC1_PWM(void){
 void __attribute__ ((interrupt,no_auto_psv)) _OC1Interrupt(void){
 
 
-   TMR2 =0;
+   //TMR2 =0;
 IFS0bits.OC1IF = 0;
 }

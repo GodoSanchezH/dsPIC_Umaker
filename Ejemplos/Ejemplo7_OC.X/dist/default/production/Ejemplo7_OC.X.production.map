@@ -55,6 +55,8 @@ c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(data
                               c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o) (__data_init_standard)
 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
                               (__crt_start_mode_normal)
+c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                              build/default/production/main.o (___delay32)
 
 
 Selected CodeGuard Options:
@@ -84,10 +86,11 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200                0xd8           0x144  (324)
-.text                        0x2d8                0xd2           0x13b  (315)
+.text                        0x200                0xd6           0x141  (321)
+.text                        0x2d6               0x168           0x21c  (540)
+.init.delay32                0x43e                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):          0x27f  (639) 1%
+                 Total "program" memory used (bytes):          0x387  (903) 2%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x800]
@@ -114,41 +117,43 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00023c                  __psv_init
-                  0x000252                  __data_init
                   0x000252                  __data_init_standard
+                  0x000252                  __data_init
                   0x0002c8                  __OC1Interrupt
-                  0x0002d2                  __DefaultInterrupt
-                  0x0002d8                  _OC1_Pin_Config
-                  0x0002f0                  _Timer2_Init
-                  0x000306                  _OC1_Active_Low_One_Shot
-                  0x000332                  _OC1_Active_High_One_Shot
-                  0x00035e                  _OC1_Toggle_mode
-                  0x00038a                  _OC1_Delayed_One_Shot
-                  0x000390                  _OC1_Continuous_Pulse
-                  0x000396                  _OC1_PWM
-                  0x00039c                  _main
+                  0x0002d0                  __DefaultInterrupt
+                  0x0002d6                  _OC1_Pin_Config
+                  0x0002ee                  _Timer2_Init
+                  0x000304                  _OC1_Active_Low_One_Shot
+                  0x000330                  _OC1_Active_High_One_Shot
+                  0x00035c                  _OC1_Toggle_mode
+                  0x000388                  _OC1_Delayed_One_Shot
+                  0x0003b8                  _OC1_Continuous_Pulse
+                  0x0003e8                  _OC1_PWM
+                  0x000416                  _main
+                  0x00043e                  ___delay32
                   0xf80000                  __FBS.sec
                   0xf80004                  __FGS.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x000332                  _OC1_Active_High_One_Shot
-                  0x000306                  _OC1_Active_Low_One_Shot
-                  0x000390                  _OC1_Continuous_Pulse
-                  0x00038a                  _OC1_Delayed_One_Shot
-                  0x000396                  _OC1_PWM
-                  0x0002d8                  _OC1_Pin_Config
-                  0x00035e                  _OC1_Toggle_mode
-                  0x0002f0                  _Timer2_Init
-                  0x0002d2                  __DefaultInterrupt
+                  0x000330                  _OC1_Active_High_One_Shot
+                  0x000304                  _OC1_Active_Low_One_Shot
+                  0x0003b8                  _OC1_Continuous_Pulse
+                  0x000388                  _OC1_Delayed_One_Shot
+                  0x0003e8                  _OC1_PWM
+                  0x0002d6                  _OC1_Pin_Config
+                  0x00035c                  _OC1_Toggle_mode
+                  0x0002ee                  _Timer2_Init
+                  0x0002d0                  __DefaultInterrupt
                   0xf80000                  __FBS.sec
                   0xf80004                  __FGS.sec
                   0x0002c8                  __OC1Interrupt
+                  0x00043e                  ___delay32
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00039c                  _main
+                  0x000416                  _main
 
 Memory Configuration
 
@@ -206,7 +211,7 @@ LOAD c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200         0xd8
+.text             0x000200         0xd6
  *(.init)
  .init            0x000200         0x4c c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -218,30 +223,30 @@ LOAD c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002c8          0xa build/default/production/OutputCompare.o
+ .isr.text        0x0002c8          0x8 build/default/production/OutputCompare.o
                   0x0002c8                  __OC1Interrupt
- .isr             0x0002d2          0x4 default_isr
-                  0x0002d2                  __DefaultInterrupt
+ .isr             0x0002d0          0x4 default_isr
+                  0x0002d0                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
  .libpic30_crt_start_mode
-                  0x0002d6          0x2 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
-                  0x0002d6                  __crt_start_mode
-                  0x0002d6                  __crt_start_mode_normal
+                  0x0002d4          0x2 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt_start_mode_normal.Leo)
+                  0x0002d4                  __crt_start_mode
+                  0x0002d4                  __crt_start_mode_normal
 
 usercode
  *(usercode)
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBSpýê
+ __FBS.sec        0xf80000          0x2 /CW/_FBS`sð
                   0xf80000                  __FBS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS ­ê
+ __FGS.sec        0xf80004          0x2 /CW/_FGSPcð
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -274,24 +279,24 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000        0xd58
+.debug_info       0x000000        0xddf
  *(.debug_info)
  .debug_info      0x000000        0x127 build/default/production/Config.o
- .debug_info      0x000127        0x18a build/default/production/main.o
- .debug_info      0x0002b1        0xaa7 build/default/production/OutputCompare.o
+ .debug_info      0x000127        0x1d5 build/default/production/main.o
+ .debug_info      0x0002fc        0xae3 build/default/production/OutputCompare.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x134
+.debug_abbrev     0x000000        0x171
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x1f build/default/production/Config.o
- .debug_abbrev    0x00001f         0x50 build/default/production/main.o
- .debug_abbrev    0x00006f         0xc5 build/default/production/OutputCompare.o
+ .debug_abbrev    0x00001f         0x8d build/default/production/main.o
+ .debug_abbrev    0x0000ac         0xc5 build/default/production/OutputCompare.o
 
-.debug_line       0x000000        0x19d
+.debug_line       0x000000        0x28d
  *(.debug_line)
  .debug_line      0x000000         0x1a build/default/production/Config.o
- .debug_line      0x00001a         0x37 build/default/production/main.o
- .debug_line      0x000051        0x14c build/default/production/OutputCompare.o
+ .debug_line      0x00001a        0x10d build/default/production/main.o
+ .debug_line      0x000127        0x166 build/default/production/OutputCompare.o
 
 .debug_frame      0x000000        0x12c
  *(.debug_frame)
@@ -959,31 +964,33 @@ LOAD c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/production/Ejemplo7_OC.X.production.elf elf32-pic30)
-LOAD /CW/_FGS ­ê
-LOAD /CW/_FBSpýê
+LOAD /CW/_FGSPcð
+LOAD /CW/_FBS`sð
 LOAD default_isr
 
 .debug_pubtypes
-                  0x000030         0xf9
+                  0x000030        0x106
  .debug_pubtypes
                   0x000030         0x12 build/default/production/Config.o
  .debug_pubtypes
-                  0x000042         0x12 build/default/production/main.o
+                  0x000042         0x1f build/default/production/main.o
  .debug_pubtypes
-                  0x000054         0xd5 build/default/production/OutputCompare.o
+                  0x000061         0xd5 build/default/production/OutputCompare.o
 
 __c30_signature
-                  0x000129         0x1e
+                  0x000136         0x24
  __c30_signature
-                  0x000129          0x6 build/default/production/Config.o
+                  0x000136          0x6 build/default/production/Config.o
  __c30_signature
-                  0x00012f          0x6 build/default/production/main.o
+                  0x00013c          0x6 build/default/production/main.o
  __c30_signature
-                  0x000135          0x6 build/default/production/OutputCompare.o
+                  0x000142          0x6 build/default/production/OutputCompare.o
  __c30_signature
-                  0x00013b          0x6 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x000148          0x6 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x000141          0x6 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x00014e          0x6 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+ __c30_signature
+                  0x000154          0x6 c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
 
 .config_JTAGEN    0xf8000e          0x2
  .config_JTAGEN
@@ -1008,15 +1015,19 @@ __c30_signature
  .ivt._OC1Interrupt
                   0x000018          0x2 build/default/production/OutputCompare.o
 
-.text             0x0002d8         0xd2
- .text            0x0002d8         0xc4 build/default/production/OutputCompare.o
-                  0x0002d8                  _OC1_Pin_Config
-                  0x0002f0                  _Timer2_Init
-                  0x000306                  _OC1_Active_Low_One_Shot
-                  0x000332                  _OC1_Active_High_One_Shot
-                  0x00035e                  _OC1_Toggle_mode
-                  0x00038a                  _OC1_Delayed_One_Shot
-                  0x000390                  _OC1_Continuous_Pulse
-                  0x000396                  _OC1_PWM
- .text            0x00039c          0xe build/default/production/main.o
-                  0x00039c                  _main
+.text             0x0002d6        0x168
+ .text            0x0002d6        0x140 build/default/production/OutputCompare.o
+                  0x0002d6                  _OC1_Pin_Config
+                  0x0002ee                  _Timer2_Init
+                  0x000304                  _OC1_Active_Low_One_Shot
+                  0x000330                  _OC1_Active_High_One_Shot
+                  0x00035c                  _OC1_Toggle_mode
+                  0x000388                  _OC1_Delayed_One_Shot
+                  0x0003b8                  _OC1_Continuous_Pulse
+                  0x0003e8                  _OC1_PWM
+ .text            0x000416         0x28 build/default/production/main.o
+                  0x000416                  _main
+
+.init.delay32     0x00043e         0x1c
+ .init.delay32    0x00043e         0x1c c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x00043e                  ___delay32

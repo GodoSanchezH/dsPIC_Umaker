@@ -10,6 +10,7 @@
 #include "Config.h"
 #include "OutputCompare.h"
 #include <libpic30.h>
+#include <p33FJ32MC202.h>
 /*
  * 
  */
@@ -17,11 +18,16 @@ int main(int argc, char** argv) {
 
     OC1_Pin_Config();
     Timer2_Init();
-    OC1_Toggle_mode();
+    OC1_PWM();
     
     for(;;){
     
-    
+        int i;
+        for (i = 0; i <=999; i++) {
+            OC1RS= i;
+            __delay_ms(5);
+        }
+
     
     }
     
