@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Ejemplo12_Vm.X
+PROJECTNAME=Ejemplo14_RTC.X
 
 # Active Configuration
 DEFAULTCONF=default
