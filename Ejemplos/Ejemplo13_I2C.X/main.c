@@ -10,18 +10,22 @@
 #include "Config.h"
 #include <libpic30.h>
 #include "I2C.h"
+#include "dsp.h"
 #include <xc.h>
 /*
  * 
  */
+fractcomplex Ia;
    int i;
 uint8_t Display_7SegA[10]={0xC0,0xf9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90};
 int main(int argc, char** argv) {
 
     I2C_Init(100);
     
-
+    Ia.imag = 1.33;
+    Ia.real = 2.32;
     
+    asm("nop");
     for(;;){
     
      
