@@ -8,16 +8,8 @@
 #ifndef CONFIG_H
 #define	CONFIG_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
+#define Fosc 10000000UL
+#define FCY Fosc/2
 
 #endif	/* CONFIG_H */
 
