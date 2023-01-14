@@ -100,13 +100,10 @@ main(int argc, char** argv) {
 
 /*Desarrollo las Funciones*/
     void DFT(float *x,struct Complex *X,uint16_t N_data){
-    
         uint16_t n=0,k=0;
         float Img,Real;
         /*for por cada muestra de frecuencia*/
-     
         for (k = 0; k <= N_data-1; k++) {
-        
             
              for (n = 0; n <= N_data-1; n++) {
             
