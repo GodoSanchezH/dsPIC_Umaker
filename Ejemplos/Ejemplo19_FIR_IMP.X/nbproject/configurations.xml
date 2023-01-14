@@ -22,6 +22,7 @@
       <itemPath>Timer_dsPIC.c</itemPath>
       <itemPath>lowpassexample.s</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>../../../../../Desktop/iir_filter.s</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -31,6 +32,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
+    <Elem>../../../../../Desktop</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

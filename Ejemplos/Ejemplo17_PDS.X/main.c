@@ -19,7 +19,7 @@
 
 #define N_Max_Coef 15
 
-#define FIR 1
+#define PasaBajo 1
 
 #ifdef PasaBajo
 /*coeficientes*/
