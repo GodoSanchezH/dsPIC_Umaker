@@ -121,7 +121,7 @@ main(int argc, char** argv) {
 
     
     }
-    void ABS(struct Complex *X,float *Xm,uint16_t N_data){
+   void ABS(struct Complex *X,float *Xm,uint16_t N_data){
     
         uint16_t k;
     for ( k= 0;  k< N_data-1; k++) {

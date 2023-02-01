@@ -402,12 +402,12 @@ usercode
 
 __FBS             0xf80000          0x2
  *(__FBS.sec*)
- __FBS.sec        0xf80000          0x2 /CW/_FBS°
+ __FBS.sec        0xf80000          0x2 /CW/_FBSŽÿ
                   0xf80000                  __FBS.sec
 
 __FGS             0xf80004          0x2
  *(__FGS.sec*)
- __FGS.sec        0xf80004          0x2 /CW/_FGS ó
+ __FGS.sec        0xf80004          0x2 /CW/_FGS`Þÿ
                   0xf80004                  __FGS.sec
 
 __FOSCSEL
@@ -1155,8 +1155,8 @@ LOAD c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-c-elf.a
 END GROUP
 OUTPUT(dist/default/production/Ejemplo18_FIR.X.production.elf elf32-pic30)
-LOAD /CW/_FGS ó
-LOAD /CW/_FBS°
+LOAD /CW/_FGS`Þÿ
+LOAD /CW/_FBSŽÿ
 LOAD default_isr
 LOAD data_init
 
