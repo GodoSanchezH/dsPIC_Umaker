@@ -1,1 +1,0 @@
- -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp="${DFP_DIR}/xc16"C:\Users\HP\Documents\GitHub\dsPIC_Umaker\Ejemplos\Ejemplo19_FIR_IMP.X\lowpassexample.s
