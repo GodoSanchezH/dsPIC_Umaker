@@ -63,7 +63,7 @@ main(int argc, char** argv) {
     TRISBbits.TRISB15 = 0;
     Analog_Init(Modo_12bits);
     UART_dsPIC_Init(9600,one_bit_Stop,Ocho_D_SP,1);
-    Timer_Temporizador(Timer3,0,0.002,64);
+    Timer_Temporizador(Timer3,0,0.02,1);
     I2C_Init(100);
 
     
